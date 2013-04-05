@@ -246,6 +246,8 @@ module.exports = class BaseView extends Backbone.View
     @parentView = null
     if (obj = @model || @collection)
       obj.off null, null, @
+      if obj.release
+        obj.release()
     super
     @trigger 'remove'
 
