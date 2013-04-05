@@ -20,13 +20,13 @@ module.exports = class Base extends Backbone.Model
     if not global.isServer
       modelName = @constructor.id or @constructor.name
       if @id and modelName
-        @_key = [modelName,'_',@.id].join('');
-        obj = instanceStore[this._key];
+        @_key = [modelName,'_',@.id].join('')
+        obj = instanceStore[@._key]
         if obj
-          instanceStoreCount[this._key]++
+          instanceStoreCount[@_key]++
           return obj
-        instanceStore[this._key] = this;
-        instanceStoreCount[this._key] = 1;
+        instanceStore[@._key] = this
+        instanceStoreCount[@._key] = 1
     
 
     # Capture the options as instance variable.
