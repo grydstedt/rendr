@@ -43,7 +43,7 @@ module.exports = class Base extends Backbone.Model
     @on 'change', @store
 
   release: () -> 
-    if global.isServer and @_key
+    if not global.isServer and @_key
       instanceStoreCount[@_key]--;
 
   # Override 'add' to make sure models have '@app' attribute.
