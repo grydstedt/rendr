@@ -51,6 +51,8 @@ module.exports = class BaseView extends Backbone.View
   # Children of the current view.
   childViews: null
 
+  # Gets array of child views by their name
+  # Empty array is returned when no match is found
   getChildViewsByName: (name) ->
     return (view for view in (@childViews || []) when view.name is name)
 
