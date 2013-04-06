@@ -51,6 +51,9 @@ module.exports = class BaseView extends Backbone.View
   # Children of the current view.
   childViews: null
 
+  getChildViewsByName: (name) ->
+    return (view for view in (@childViews || []) when view.name is name)
+
   # Get data for template.  This also acts as a view-model.
   # Try to return proper data if model or collection is available.
   getTemplateData: ->
